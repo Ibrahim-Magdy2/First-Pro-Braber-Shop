@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="YourBrand Luxury Barber — premium grooming, fine haircuts, beard care, and concierge appointment booking."
+    />
+    <title>YourBrand Luxury Barber</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" id="top">
+        <nav class="topbar" aria-label="Main navigation">
+          <a href="#top" class="brand" aria-label="YourBrand home">YourBrand</a>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="nav-links" id="navMenu">
+            <a href="#about" data-i18n="nav.about">About</a>
+            <a href="#services" data-i18n="nav.services">Services</a>
+            <a href="#barbers" data-i18n="nav.barbers">Barbers</a>
+            <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+            <a href="#booking" data-i18n="nav.booking">Booking</a>
+          </div>
+
+          <div class="nav-actions">
+            <div class="lang-switch" aria-label="Language switcher">
+              <button type="button" class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
+              <button type="button" class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">AR</button>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+              <span class="theme-icon" aria-hidden="true">☀️</span>
+              <span data-i18n="theme.label">Light</span>
+            </button>
+
+            <button id="cartToggle" class="cart-toggle" type="button" aria-label="Open cart drawer">
+              <span aria-hidden="true">🛒</span>
+              <span class="cart-count" id="cartCount">0</span>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart panel" aria-hidden="true">
+        <div class="cart-header">
+          <div>
+            <p class="eyebrow" data-i18n="cart.eyebrow">Your selection</p>
+            <h2 data-i18n="cart.title">Cart</h2>
+          </div>
+          <button type="button" class="close-drawer" id="closeCart" aria-label="Close cart">
+            ×
+          </button>
+        </div>
+
+        <div class="cart-content" id="cartItemsContainer"></div>
+
+        <div class="cart-footer">
+          <div class="cart-line">
+            <span data-i18n="cart.subtotal">Subtotal</span>
+            <strong id="cartSubtotal">EGB 0.00</strong>
+          </div>
+          <div class="cart-line total-row">
+            <span data-i18n="cart.total">Total</span>
+            <strong id="cartTotal">EGB 0.00</strong>
+          </div>
+
+          <div class="cart-actions">
+            <button type="button" class="secondary-btn" id="clearCartBtn" data-i18n="cart.clear">Clear all</button>
+            <a href="#booking" class="primary-btn cart-book-btn" id="cartBookBtn" data-i18n="cart.bookNow">Book now</a>
+          </div>
+        </div>
+      </aside>
+
+      <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+
+      <main>
+        <section class="hero">
+          <div class="hero-slider" id="heroSlider" aria-live="polite">
+            <div class="hero-track" id="heroTrack"></div>
+            <div class="hero-controls">
+              <button type="button" class="slider-arrow prev" id="heroPrev" aria-label="Previous slide">‹</button>
+              <div class="hero-dots" id="heroDots" aria-label="Hero slide indicators"></div>
+              <button type="button" class="slider-arrow next" id="heroNext" aria-label="Next slide">›</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="about section" id="about">
+          <div class="section-heading">
+            <p class="eyebrow" data-i18n="about.eyebrow">Crafted for the modern gentleman</p>
+            <h2 data-i18n="about.title">Luxury grooming, done right</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy">
+              <p data-i18n="about.description1">
+                YourBrand blends timeless barber traditions with elevated, contemporary care to create a refined routine built around confidence.
+              </p>
+              <p data-i18n="about.description2">
+                From precision cuts to classic beard shaping and wellness rituals, every appointment is designed around detail, comfort, and unrivaled finish.
+              </p>
+              <div class="about-badges">
+                <span data-i18n="about.badge1">Tailored service</span>
+                <span data-i18n="about.badge2">Premium products</span>
+                <span data-i18n="about.badge3">Private lounge</span>
+              </div>
+            </div>
+
+            <div class="stats-grid" id="statsGrid" aria-label="Key business statistics"></div>
+          </div>
+
+          <div class="timeline" id="timelineList"></div>
+        </section>
+
+        <section class="mission-vision section">
+          <div class="mission-card">
+            <p class="eyebrow" data-i18n="mission.eyebrow">Our mission</p>
+            <h3 data-i18n="mission.title">To refine confidence</h3>
+            <p data-i18n="mission.text">
+              We help every client feel composed, polished, and at ease through tailored grooming rituals that bring clarity and presence to everyday life.
+            </p>
+          </div>
+          <div class="vision-card">
+            <p class="eyebrow" data-i18n="vision.eyebrow">Our vision</p>
+            <h3 data-i18n="vision.title">To set a new standard</h3>
+            <p data-i18n="vision.text">
+              We aim to define a modern luxury barber experience that pairs craftsmanship with a warm, elevated atmosphere for every generation.
+            </p>
+          </div>
+        </section>
+
+        <section class="services section" id="services">
+          <div class="section-heading services-head">
+            <div>
+              <p class="eyebrow" data-i18n="services.eyebrow">Signature care</p>
+              <h2 data-i18n="services.title">Luxury services</h2>
+            </div>
+          </div>
+
+          <div class="search-panel" aria-label="Global search panel">
+            <label class="search-label" for="globalSearch" data-i18n="search.label">Search services, barbers & gallery</label>
+            <div class="search-input-wrap">
+              <input
+                id="globalSearch"
+                type="search"
+                autocomplete="off"
+                data-i18n-placeholder="search.placeholder"
+                placeholder="Search services, barbers & gallery"
+                aria-label="Global search"
+              />
+              <button type="button" class="clear-search" id="clearSearch" aria-label="Clear search">×</button>
+            </div>
+            <div class="search-meta">
+              <span id="searchCount" data-i18n="search.count">0 results</span>
+            </div>
+            <div id="searchResults" class="search-results" aria-live="polite"></div>
+          </div>
+
+          <div class="services-grid" id="serviceGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="barbers section" id="barbers">
+          <div class="section-heading">
+            <p class="eyebrow" data-i18n="barbers.eyebrow">Meet the experts</p>
+            <h2 data-i18n="barbers.title">YourBrand specialists</h2>
+          </div>
+          <div class="barbers-grid" id="barberGrid"></div>
+        </section>
+
+        <section class="gallery section" id="gallery">
+          <div class="section-heading">
+            <p class="eyebrow" data-i18n="gallery.eyebrow">Our atmosphere</p>
+            <h2 data-i18n="gallery.title">Crafted ambience</h2>
+          </div>
+
+          <div class="gallery-filters" id="galleryFilters" aria-label="Gallery filter options"></div>
+          <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="testimonials section" id="testimonials">
+          <div class="section-heading">
+            <p class="eyebrow" data-i18n="testimonials.eyebrow">Client love</p>
+            <h2 data-i18n="testimonials.title">What clients say</h2>
+          </div>
+
+          <div class="testimonial-slider" id="testimonialSlider" aria-live="polite">
+            <button type="button" class="slider-arrow testimonial-prev" id="testimonialPrev" aria-label="Previous testimonial">‹</button>
+            <div class="testimonial-track" id="testimonialTrack"></div>
+            <button type="button" class="slider-arrow testimonial-next" id="testimonialNext" aria-label="Next testimonial">›</button>
+          </div>
+          <div class="testimonial-dots" id="testimonialDots" aria-label="Testimonial slide indicators"></div>
+        </section>
+
+        <section class="booking section" id="booking">
+          <div class="section-heading booking-head">
+            <p class="eyebrow" data-i18n="booking.eyebrow">Book your session</p>
+            <h2 data-i18n="booking.title">Reserve your appointment</h2>
+          </div>
+
+          <div class="booking-grid">
+            <div class="booking-card">
+              <form id="bookingForm" novalidate>
+                <div class="input-grid">
+                  <div class="field-group">
+                    <label for="fullName" data-i18n="booking.form.fullName">Full Name</label>
+                    <input id="fullName" name="fullName" type="text" autocomplete="name" aria-label="Full name" />
+                    <small class="error-text" data-error-for="fullName"></small>
+                  </div>
+
+                  <div class="field-group">
+                    <label for="phone" data-i18n="booking.form.phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-label="Phone number" />
+                    <small class="error-text" data-error-for="phone"></small>
+                  </div>
+
+                  <div class="field-group">
+                    <label for="email" data-i18n="booking.form.email">Email</label>
+                    <input id="email" name="email" type="email" inputmode="email" autocomplete="email" aria-label="Email address" />
+                    <small class="error-text" data-error-for="email"></small>
+                  </div>
+
+                  <div class="field-group">
+                    <label for="bookingDate" data-i18n="booking.form.date">Date</label>
+                    <input id="bookingDate" name="date" type="date" aria-label="Reservation date" />
+                    <small class="error-text" data-error-for="date"></small>
+                  </div>
+
+                  <div class="field-group">
+                    <label for="bookingTime" data-i18n="booking.form.time">Time</label>
+                    <input id="bookingTime" name="time" type="time" aria-label="Reservation time" />
+                    <small class="error-text" data-error-for="time"></small>
+                  </div>
+
+                  <div class="field-group full-width">
+                    <label for="notes" data-i18n="booking.form.notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="4" aria-label="Notes"></textarea>
+                    <small class="error-text" data-error-for="notes"></small>
+                  </div>
+                </div>
+
+                <div class="booking-submit-wrap">
+                  <button type="submit" class="primary-btn booking-submit" data-i18n="booking.submit">Review booking</button>
+                </div>
+              </form>
+            </div>
+
+            <aside class="booking-summary-card">
+              <div class="summary-header">
+                <h3 data-i18n="booking.summary.title">Booking summary</h3>
+              </div>
+              <div id="bookingSummary" class="booking-summary" aria-live="polite"></div>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <div class="brand" aria-label="YourBrand">YourBrand</div>
+          <p data-i18n="footer.tagline">Luxury grooming without compromise.</p>
+        </div>
+
+        <div class="footer-links">
+          <div>
+            <h4 data-i18n="footer.visit">Visit</h4>
+            <ul>
+              <li>Downtown Avenue, Riyadh</li>
+              <li>+2010xxxxxxx</li>
+            </ul>
+          </div>
+          <div>
+            <h4 data-i18n="footer.hours">Hours</h4>
+            <ul>
+              <li data-i18n="footer.hoursMon">Mon-Sat: 10:00-22:00</li>
+              <li data-i18n="footer.hoursSun">Sun: By appointment</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal hidden" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewTitle">
+      <div class="modal-backdrop" data-close-modal="reviewModal"></div>
+      <div class="modal-panel review-panel">
+        <button type="button" class="modal-close" data-close-modal="reviewModal" aria-label="Close review modal">×</button>
+        <div class="modal-header">
+          <p class="eyebrow" data-i18n="review.eyebrow">Review details</p>
+          <h3 id="reviewTitle" data-i18n="review.title">Booking review</h3>
+        </div>
+        <div id="reviewContent" class="review-content"></div>
+        <div class="modal-actions">
+          <button type="button" class="secondary-btn" id="editBookingBtn" data-i18n="review.edit">Edit</button>
+          <button type="button" class="primary-btn" id="confirmBookingBtn" data-i18n="review.confirm">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+      <div class="modal-backdrop" data-close-modal="successModal"></div>
+      <div class="modal-panel success-panel">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <div class="modal-header">
+          <p class="eyebrow" data-i18n="success.eyebrow">Confirmed</p>
+          <h3 id="successTitle" data-i18n="success.title">Booking confirmed</h3>
+        </div>
+        <p id="successMessage" data-i18n="success.message">Your appointment was successfully placed.</p>
+        <div id="bookingReference" class="booking-reference"></div>
+        <div class="modal-actions">
+          <button type="button" class="primary-btn" id="successCloseBtn" data-i18n="success.close">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
