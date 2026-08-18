@@ -166,7 +166,7 @@ const appData = {
     { id: 'g2', category: 'beard', title: { en: 'Beard shaping', ar: 'تشكيل اللحية' }, image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80' },
     { id: 'g3', category: 'lounge', title: { en: 'Private lounge', ar: 'الصالة الخاصة' }, image: 'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80' },
     { id: 'g4', category: 'hair', title: { en: 'Clean texture', ar: 'ملمس نظيف' }, image: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80' },
-    { id: 'g5', category: 'beard', title: { en: 'Royal contour', ar: 'حدود ملكية' }, image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80' },
+    { id: 'g5', category: 'beard', title: { en: 'Royal contour', ar: 'حدود ملكية' }, image: 'pexels-alexandre-saraiva-carniato-583650-5469882.jpg' },
     { id: 'g6', category: 'lounge', title: { en: 'Executive styling', ar: 'تصفيف تنفيذي' }, image: 'pexels-cottonbro-3998404.jpg' },
   ],
   testimonials: [
@@ -202,7 +202,7 @@ const appData = {
 
 const translations = {
   en: {
-    nav: { about: 'About', services: 'Services', barbers: 'Barbers', gallery: 'Gallery', booking: 'Booking' },
+    nav: { about: 'About', services: 'Services', barbers: 'Barbers', gallery: 'Gallery', booking: 'Booking', location: 'Our Location'},
     theme: { label: 'Light', dark: 'Dark', light: 'Light' },
     cart: {
       eyebrow: 'Your selection',
@@ -287,6 +287,11 @@ const translations = {
       message: 'Your appointment was successfully placed.',
       close: 'Done',
     },
+
+TheLocation: {
+locationEyebrow: 'Our Location',
+locationTitle: 'Visit us in the heart of the city',
+},
     footer: {
       tagline: 'Luxury grooming without compromise.',
       visit: 'Visit',
@@ -321,7 +326,7 @@ const translations = {
     },
   },
   ar: {
-    nav: { about: 'من نحن', services: 'الخدمات', barbers: 'الخبراء', gallery: 'المعرض', booking: 'الحجز' },
+    nav: { about: 'من نحن', services: 'الخدمات', barbers: 'الخبراء', gallery: 'المعرض', booking: 'الحجز', location: 'موقعنا'},
     theme: { label: 'داكن', dark: 'داكن', light: 'فاتح' },
     cart: {
       eyebrow: 'اختيارك',
@@ -406,6 +411,11 @@ const translations = {
       message: 'تم حجز موعدك بنجاح.',
       close: 'تم',
     },
+
+TheLocation: {
+locationEyebrow: 'موقعنا',
+locationTitle: 'زورنا في قلب المدينة',
+},
     footer: {
       tagline: 'تجميل فاخر دون تنازل.',
       visit: 'الزيارة',
