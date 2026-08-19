@@ -194,11 +194,6 @@ body[data-theme='dark'] .topbar {
   transform: translateY(-2px);
 }
 
-.nav-links a:hover::after,
-.nav-links a:focus-visible::after {
-  transform: scaleX(1);
-}
-
 .nav-actions {
   gap: 12px;
 }
