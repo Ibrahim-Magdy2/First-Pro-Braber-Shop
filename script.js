@@ -9,7 +9,7 @@ const appData = {
   services: [
     {
       id: 'signature-cut',
-      image: 'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80',
+      image: 'pexels-instasky-9992816.jpg',
       name: { en: 'Signature Cut', ar: 'التقليم المميز' },
       description: {
         en: 'Precision styling tailored to your face shape and daily routine.',
@@ -21,7 +21,7 @@ const appData = {
     },
     {
       id: 'royal-beard',
-      image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80',
+      image: 'pexels-cottonbro-3998421.jpg',
       name: { en: 'Royal Beard', ar: 'اللحية الملكية' },
       description: {
         en: 'Refined beard sculpting, trim, and tone balancing with premium oil.',
@@ -109,7 +109,7 @@ const appData = {
       },
       ctaPrimary: { en: 'Reserve a trim', ar: 'احجز تقليمك' },
       ctaSecondary: { en: 'View the lounge', ar: 'شاهد الصالة' },
-      image: 'aleksandar-andreev-4cRItOA7bSE-unsplash.jpg',
+      image: 'pexels-cacito-7922651.jpg',
     },
     {
       badge: { en: 'Executive care', ar: 'رعاية تنفيذية' },
@@ -162,9 +162,9 @@ const appData = {
     },
   ],
   gallery: [
-    { id: 'g1', category: 'hair', title: { en: 'Luxury fade', ar: 'تدرج فاخر' }, image: 'pexels-cottonbro-3998429.jpg' },
-    { id: 'g2', category: 'beard', title: { en: 'Beard shaping', ar: 'تشكيل اللحية' }, image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80' },
-    { id: 'g3', category: 'lounge', title: { en: 'Private lounge', ar: 'الصالة الخاصة' }, image: 'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=80' },
+    { id: 'g1', category: 'hair', title: { en: 'Luxury fade', ar: 'تدرج فاخر' }, image: 'pexels-rebornfilmes-33461079.jpg' },
+    { id: 'g2', category: 'beard', title: { en: 'Beard shaping', ar: 'تشكيل اللحية' }, image: 'pexels-cottonbro-3998429.jpg' },
+    { id: 'g3', category: 'lounge', title: { en: 'Private lounge', ar: 'الصالة الخاصة' }, image: 'pexels-lukas-kosc-525097851-16474397.jpg' },
     { id: 'g4', category: 'hair', title: { en: 'Clean texture', ar: 'ملمس نظيف' }, image: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80' },
     { id: 'g5', category: 'beard', title: { en: 'Royal contour', ar: 'حدود ملكية' }, image: 'pexels-alexandre-saraiva-carniato-583650-5469882.jpg' },
     { id: 'g6', category: 'lounge', title: { en: 'Executive styling', ar: 'تصفيف تنفيذي' }, image: 'pexels-cottonbro-3998404.jpg' },
