@@ -109,7 +109,7 @@ const appData = {
       },
       ctaPrimary: { en: 'Reserve a trim', ar: 'احجز تقليمك' },
       ctaSecondary: { en: 'View the lounge', ar: 'شاهد الصالة' },
-      image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=80',
+      image: 'aleksandar-andreev-4cRItOA7bSE-unsplash.jpg',
     },
     {
       badge: { en: 'Executive care', ar: 'رعاية تنفيذية' },
@@ -120,7 +120,7 @@ const appData = {
       },
       ctaPrimary: { en: 'Schedule now', ar: 'حدد موعدك' },
       ctaSecondary: { en: 'Learn more', ar: 'اعرف المزيد' },
-      image: 'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=1200&q=80',
+      image: 'nate-johnston-tgPrIYnW3g4-unsplash.jpg',
     },
   ],
   barbers: [
