@@ -272,19 +272,23 @@ body[data-theme='dark'] .topbar {
 }
 
 .nav-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: 50%;
   background: var(--card);
   border: 1px solid var(--border);
   padding: 10px;
+  flex-shrink: 0;
 }
 
 .nav-toggle span {
-  width: 100%;
+  display: block;
+  width: 20px;
   height: 2px;
   border-radius: 999px;
   background: var(--text);
