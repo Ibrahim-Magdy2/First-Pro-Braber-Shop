@@ -133,7 +133,7 @@ const appData = {
         en: 'Known for sculpted fades and sharp finishing lines with an effortless calm presence.',
         ar: 'مشهور بالتدرجات المصممة والخطوط الحادة مع حضور هادئ ومريح.',
       },
-      photo: '',
+      photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
       socials: { Instagram: 'https://instagram.com', X: 'https://x.com', TikTok: 'https://tiktok.com' },
     },
     {
@@ -145,7 +145,7 @@ const appData = {
         en: 'Designs balanced beard shapes that bring structure, softness, and tailored detail.',
         ar: 'يصمم أشكال لبدة متوازنة تقدم هيكلية، نعومة، وتفاصيل مصممة وفقك.',
       },
-      photo: '',
+      photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
       socials: { Instagram: 'https://instagram.com', X: 'https://x.com', TikTok: 'https://tiktok.com' },
     },
     {
@@ -157,7 +157,7 @@ const appData = {
         en: 'Creates polished looks rooted in comfort, premium care rituals, and personal styling.',
         ar: 'يخلق مظهرًا أنيقًا مبنيًا على الراحة، الطقوس الفاخرة، والأسلوب الشخصي.',
       },
-      photo: '',
+      photo: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=800&q=80',
       socials: { Instagram: 'https://instagram.com', X: 'https://x.com', TikTok: 'https://tiktok.com' },
     },
   ],

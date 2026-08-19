@@ -1070,6 +1070,19 @@ mark {
   gap: 18px;
 }
 
+select {
+  
+ width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(217, 184, 125, 0.2);
+  border-radius: 0.9rem;
+  color: var(--text);
+  min-height: 3.2rem;
+  padding: 0.75rem 0.9rem;
+  margin-top: 9px;
+
+}
+
 .field-group {
   display: flex;
   flex-direction: column;
