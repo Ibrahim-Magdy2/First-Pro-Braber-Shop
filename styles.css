@@ -125,8 +125,7 @@ h2 {
   z-index: 40;
   padding-top: 18px;
   backdrop-filter: blur(14px);
-  font-size: 5px;
-  margin-left: 5px;
+  max-width: 1200px;
 }
 
 .topbar {
