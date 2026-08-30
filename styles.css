@@ -1740,3 +1740,329 @@ body.cart-open {
     0 6px 0 var(--text),
     0 12px 0 var(--text);
 }
+
+/* =========================
+   YourBrand AI Assistant
+   Theme Synced
+========================= */
+
+.ai-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 58px;
+  height: 58px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  background: var(--card-strong);
+  color: var(--primary);
+  font-size: 26px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 9998;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ai-assistant {
+  position: fixed;
+  right: 24px;
+  bottom: 94px;
+  width: min(390px, calc(100vw - 32px));
+  height: 560px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--card-strong);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 24px;
+
+  overflow: hidden;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(20px) scale(.97);
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+
+  box-shadow: var(--shadow);
+}
+
+.ai-assistant.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+
+  /* مهم جدًا: مفيش background أبيض هنا */
+  background: var(--card-strong);
+  color: var(--text);
+}
+
+.ai-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px;
+
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ai-eyebrow {
+  display: block;
+  color: var(--primary);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.ai-header h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 16px;
+}
+
+#aiClose {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 28px;
+  cursor: pointer;
+
+  transition: color 0.25s ease;
+}
+
+.ai-messages {
+  flex: 1;
+  padding: 18px;
+
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: var(--card-strong);
+
+  transition: background 0.25s ease;
+}
+
+.ai-message {
+  max-width: 85%;
+  padding: 12px 14px;
+  border-radius: 16px;
+
+  line-height: 1.7;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.ai-message-bot {
+  align-self: flex-start;
+
+  background: var(--primary-soft);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+}
+
+.ai-message-user {
+  align-self: flex-end;
+
+  background: var(--primary);
+  color: #fff;
+
+  border: 1px solid transparent;
+}
+
+.ai-suggestions {
+  display: flex;
+  gap: 7px;
+
+  padding: 10px 14px;
+
+  overflow-x: auto;
+
+  background: var(--card);
+  border-top: 1px solid var(--border);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ai-suggestions button {
+  flex: 0 0 auto;
+
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+
+  border-radius: 999px;
+  padding: 8px 12px;
+
+  cursor: pointer;
+  font-size: 12px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ai-suggestions button:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+}
+
+.ai-form {
+  display: flex;
+  gap: 8px;
+
+  padding: 14px;
+
+  background: var(--card);
+  border-top: 1px solid var(--border);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ai-form input {
+  flex: 1;
+  min-width: 0;
+
+  border: 1px solid var(--border);
+
+  background: var(--bg-elevated);
+  color: var(--text);
+
+  border-radius: 12px;
+  padding: 12px;
+
+  outline: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ai-form input::placeholder {
+  color: var(--muted);
+}
+
+.ai-form input:focus {
+  border-color: var(--primary);
+}
+
+.ai-form button {
+  border: 0;
+
+  background: var(--primary);
+  color: #fff;
+
+  padding: 0 16px;
+
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.2s ease;
+}
+
+.ai-form button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   AI - DARK MODE
+   ========================= */
+
+body[data-theme='dark'] .ai-assistant {
+  background: var(--card-strong);
+  color: var(--text);
+}
+
+body[data-theme='dark'] .ai-messages {
+  background: var(--card-strong);
+}
+
+body[data-theme='dark'] .ai-message-bot {
+  background: var(--primary-soft);
+  color: var(--text);
+}
+
+body[data-theme='dark'] .ai-suggestions,
+body[data-theme='dark'] .ai-form,
+body[data-theme='dark'] .ai-header {
+  background: var(--card);
+}
+
+
+/* =========================
+   AI - LIGHT MODE
+   ========================= */
+
+body:not([data-theme='dark']) .ai-assistant {
+  background: var(--card-strong);
+  color: var(--text);
+}
+
+body:not([data-theme='dark']) .ai-messages {
+  background: var(--card-strong);
+}
+
+body:not([data-theme='dark']) .ai-message-bot {
+  background: var(--primary-soft);
+  color: var(--text);
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .ai-toggle {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .ai-assistant {
+    right: 16px;
+    bottom: 86px;
+
+    width: calc(100vw - 32px);
+    height: min(600px, calc(100vh - 110px));
+  }
+}

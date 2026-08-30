@@ -1597,3 +1597,460 @@ function setupCartListeners() {
 }
 
 window.addEventListener('DOMContentLoaded', init);
+
+/* =========================
+   YourBrand Smart Assistant
+   Local FAQ / Rule-Based AI
+========================= */
+
+function setupAIAssistant() {
+  const toggle = document.getElementById('aiToggle');
+  const close = document.getElementById('aiClose');
+  const assistant = document.getElementById('aiAssistant');
+  const form = document.getElementById('aiForm');
+  const input = document.getElementById('aiInput');
+  const messages = document.getElementById('aiMessages');
+
+  if (!toggle || !close || !assistant || !form || !input || !messages) {
+    return;
+  }
+
+  function openAI() {
+    assistant.classList.add('open');
+    assistant.setAttribute('aria-hidden', 'false');
+    input.focus();
+  }
+
+  function closeAI() {
+    assistant.classList.remove('open');
+    assistant.setAttribute('aria-hidden', 'true');
+  }
+
+  function addMessage(text, type = 'bot') {
+    const message = document.createElement('div');
+
+    message.className =
+      type === 'user'
+        ? 'ai-message ai-message-user'
+        : 'ai-message ai-message-bot';
+
+    message.textContent = text;
+
+    messages.appendChild(message);
+    messages.scrollTop = messages.scrollHeight;
+
+    return message;
+  }
+
+  function normalizeQuestion(text) {
+    return text
+      .toLowerCase()
+      .replace(/[؟?!.,،]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function containsAny(text, words) {
+    return words.some(word => text.includes(word));
+  }
+
+  function getAIReply(question) {
+    const q = normalizeQuestion(question);
+
+    const isArabic = state.lang === 'ar';
+
+    /* =========================
+       GREETING
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'السلام عليكم',
+        'السلام',
+        'اهلا',
+        'أهلا',
+        'هاي',
+        'هلا',
+        'hello',
+        'hi',
+        'hey'
+      ])
+    ) {
+      return isArabic
+        ? 'أهلاً بك في YourBrand 👋 كيف يمكنني مساعدتك؟ يمكنك سؤالي عن الخدمات والأسعار والمدة والحجز.'
+        : 'Welcome to YourBrand 👋 How can I help? You can ask me about services, prices, duration, or booking.';
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'الخدمات',
+        'خدماتكم',
+        'الخدمات الموجودة',
+        'ايه عندكم',
+        'ماذا تقدمون',
+        'services',
+        'service'
+      ])
+    ) {
+      return isArabic
+        ? 'لدينا 4 خدمات رئيسية: التقليم المميز 250 جنيه، اللحية الملكية 350 جنيه، الحلاقة التنفيذية 500 جنيه، وتجهيز الوجه الذهبي 200 جنيه.'
+        : 'We offer 4 main services: Signature Cut EGP 250, Royal Beard EGP 350, Executive Shave EGP 500, and Golden Facial EGP 200.';
+    }
+
+    /* =========================
+       SIGNATURE CUT
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'signature',
+        'signature cut',
+        'التقليم المميز',
+        'قصة شعر',
+        'قص شعر',
+        'قص الشعر',
+        'حلاقة شعر',
+        'حلاقه شعر'
+      ])
+    ) {
+      return isArabic
+        ? 'التقليم المميز (Signature Cut) سعره 250 جنيه ومدته 30 دقيقة، وهو تصفيف دقيق مصمم وفق شكل الوجه وروتينك اليومي.'
+        : 'Signature Cut costs EGP 250 and takes 30 minutes. It is precision styling tailored to your face shape and daily routine.';
+    }
+
+    /* =========================
+       ROYAL BEARD
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'royal beard',
+        'beard',
+        'اللحية',
+        'دقن',
+        'ذقن',
+        'تقليم دقن',
+        'حلاقة دقن',
+        'حلاقه دقن'
+      ])
+    ) {
+      return isArabic
+        ? 'اللحية الملكية (Royal Beard) سعرها 350 جنيه ومدتها 25 دقيقة، وتشمل تشكيل اللحية وتقليمها وتوازن درجة اللون باستخدام زيت فاخر.'
+        : 'Royal Beard costs EGP 350 and takes 25 minutes. It includes beard sculpting, trimming, tone balancing, and premium oil.';
+    }
+
+    /* =========================
+       EXECUTIVE SHAVE
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'executive',
+        'executive shave',
+        'shave',
+        'الحلاقة التنفيذية',
+        'حلاقة تنفيذية',
+        'حلاقه تنفيذية',
+        'حلاقة كاملة',
+        'حلاقه كاملة'
+      ])
+    ) {
+      return isArabic
+        ? 'الحلاقة التنفيذية (Executive Shave) سعرها 500 جنيه ومدتها 20 دقيقة، وتشمل حلاقة تقليدية دقيقة مع منشفة ساخنة وإنهاء منعش.'
+        : 'Executive Shave costs EGP 500 and takes 20 minutes. It includes a close traditional shave with a hot towel and cooling finish.';
+    }
+
+    /* =========================
+       GOLDEN FACIAL
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'golden facial',
+        'facial',
+        'العناية',
+        'الوجه',
+        'تنظيف الوجه',
+        'فيس',
+        'فاشيال'
+      ])
+    ) {
+      return isArabic
+        ? 'تجهيز الوجه الذهبي (Golden Facial) سعره 200 جنيه ومدته 35 دقيقة، ويشمل تنظيفًا عميقًا وترطيبًا متوازنًا.'
+        : 'Golden Facial costs EGP 200 and takes 35 minutes. It includes deep cleansing and balanced hydration.';
+    }
+
+    /* =========================
+       PRICES
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'السعر',
+        'الاسعار',
+        'الأسعار',
+        'بكام',
+        'بكم',
+        'تكلفة',
+        'كام جنيه',
+        'price',
+        'prices',
+        'cost'
+      ])
+    ) {
+      return isArabic
+        ? 'أسعارنا: التقليم المميز 250 جنيه، اللحية الملكية 350 جنيه، الحلاقة التنفيذية 500 جنيه، وتجهيز الوجه الذهبي 200 جنيه.'
+        : 'Our prices are: Signature Cut EGP 250, Royal Beard EGP 350, Executive Shave EGP 500, and Golden Facial EGP 200.';
+    }
+
+    /* =========================
+       DURATION
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'المدة',
+        'مدة',
+        'بتاخد وقت',
+        'وقت الخدمة',
+        'how long',
+        'duration',
+        'time'
+      ])
+    ) {
+      return isArabic
+        ? 'مدة الخدمات: التقليم المميز 30 دقيقة، اللحية الملكية 25 دقيقة، الحلاقة التنفيذية 20 دقيقة، وتجهيز الوجه الذهبي 35 دقيقة.'
+        : 'Service durations: Signature Cut 30 min, Royal Beard 25 min, Executive Shave 20 min, and Golden Facial 35 min.';
+    }
+
+    /* =========================
+       BOOKING
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'احجز',
+        'حجز',
+        'موعد',
+        'احجزلي',
+        'عايز احجز',
+        'اريد حجز',
+        'booking',
+        'book',
+        'appointment'
+      ])
+    ) {
+      return isArabic
+        ? 'أكيد ✂️ يمكنك اختيار الخدمة من قسم الخدمات ثم إضافتها إلى السلة، وبعد ذلك الانتقال إلى قسم الحجز وإدخال بياناتك وموعدك.'
+        : 'Absolutely ✂️ Choose a service from the Services section, add it to your cart, then go to Booking and enter your details and preferred time.';
+    }
+
+    /* =========================
+       BARBERS
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'الحلاقين',
+        'الحلاق',
+        'الحلاقين عندكم',
+        'الخبراء',
+        'مين بيحلق',
+        'barbers',
+        'barber',
+        'experts'
+      ])
+    ) {
+      return isArabic
+        ? 'لدينا 3 خبراء: عمر حمد متخصص في التدرج الدقيق، نبيل سالم متخصص في هندسة اللحية، وسامي رحمن متخصص في التجميل الفاخر.'
+        : 'We have 3 specialists: Omar Haddad for Precision Fade, Nabil Salim for Beard Architecture, and Sami Rahman for Luxury Grooming.';
+    }
+
+    /* =========================
+       OMAR
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'عمر',
+        'omar',
+        'omar haddad'
+      ])
+    ) {
+      return isArabic
+        ? 'عمر حمد متخصص في التدرج الدقيق ولديه 12 سنة من الخبرة.'
+        : 'Omar Haddad specializes in Precision Fade and has 12 years of experience.';
+    }
+
+    /* =========================
+       NABIL
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'نبيل',
+        'nabil'
+      ])
+    ) {
+      return isArabic
+        ? 'نبيل سالم متخصص في هندسة اللحية ولديه 9 سنوات من الخبرة.'
+        : 'Nabil Salim specializes in Beard Architecture and has 9 years of experience.';
+    }
+
+    /* =========================
+       SAMI
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'سامي',
+        'sami'
+      ])
+    ) {
+      return isArabic
+        ? 'سامي رحمن متخصص في التجميل الفاخر ولديه 8 سنوات من الخبرة.'
+        : 'Sami Rahman specializes in Luxury Grooming and has 8 years of experience.';
+    }
+
+    /* =========================
+       LOCATION
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'المكان',
+        'الموقع',
+        'فين',
+        'عنوان',
+        'موقعكم',
+        'location',
+        'address',
+        'where'
+      ])
+    ) {
+      return isArabic
+        ? 'يمكنك معرفة موقع YourBrand من قسم "موقعنا" في الموقع.'
+        : 'You can find the YourBrand location in the "Our Location" section of the website.';
+    }
+
+    /* =========================
+       HOURS
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'مواعيد',
+        'ساعات العمل',
+        'بتفتحوا',
+        'بتقفلوا',
+        'مفتوح',
+        'open',
+        'hours',
+        'working hours'
+      ])
+    ) {
+      return isArabic
+        ? 'نعمل من الاثنين إلى السبت من 10:00 صباحًا حتى 10:00 مساءً، ويوم الأحد حسب الموعد.'
+        : 'We are open Monday to Saturday from 10:00 AM to 10:00 PM. Sunday is by appointment.';
+    }
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'المعرض',
+        'الصور',
+        'صور',
+        'gallery',
+        'photos',
+        'images'
+      ])
+    ) {
+      return isArabic
+        ? 'يمكنك مشاهدة أعمالنا وأجواء الصالة من خلال قسم المعرض، مع إمكانية تصفية الصور حسب الشعر أو اللحية أو الصالة.'
+        : 'You can explore our work and lounge atmosphere in the Gallery section, with filters for Hair, Beard, and Lounge.';
+    }
+
+    /* =========================
+       CONTACT / HELP
+    ========================= */
+
+    if (
+      containsAny(q, [
+        'مساعدة',
+        'ساعدني',
+        'معلومات',
+        'help',
+        'contact',
+        'تواصل'
+      ])
+    ) {
+      return isArabic
+        ? 'طبعًا 👋 يمكنك سؤالي عن الخدمات، الأسعار، مدة الخدمة، الخبراء، مواعيد العمل، الموقع، أو طريقة الحجز.'
+        : 'Of course 👋 Ask me about services, prices, duration, specialists, opening hours, location, or booking.';
+    }
+
+    /* =========================
+       DEFAULT
+    ========================= */
+
+    return isArabic
+      ? 'مش متأكد إني فهمت سؤالك 🤔 جرّب تسألني عن الخدمات، الأسعار، مدة الخدمة، الحلاقين، الموقع، مواعيد العمل أو الحجز.'
+      : 'I’m not sure I understood 🤔 Try asking me about services, prices, duration, barbers, location, opening hours, or booking.';
+  }
+
+  function sendMessage(message) {
+    if (!message.trim()) return;
+
+    addMessage(message, 'user');
+
+    input.value = '';
+    input.disabled = true;
+
+    setTimeout(() => {
+      const reply = getAIReply(message);
+      addMessage(reply, 'bot');
+
+      input.disabled = false;
+      input.focus();
+    }, 350);
+  }
+
+  toggle.addEventListener('click', () => {
+    if (assistant.classList.contains('open')) {
+      closeAI();
+    } else {
+      openAI();
+    }
+  });
+
+  close.addEventListener('click', closeAI);
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const message = input.value.trim();
+
+    if (message) {
+      sendMessage(message);
+    }
+  });
+
+  document.querySelectorAll('[data-ai-prompt]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const prompt = button.dataset.aiPrompt;
+
+      if (prompt) {
+        sendMessage(prompt);
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupAIAssistant);
